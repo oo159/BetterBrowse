@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BetterBrowse</title>
+</head>
+<body>
+    <h1>BetterBrowse~</h1>
+    <input id = "searchStart">
+    <button onclick="go()">Search</button>
+    <button onclick="cmd()">Command</button>
+    <h1> </h1>
+    <button onclick="gourl1()">google</button>
+    <button onclick="gourl2()">tiktok</button>
+    <button onclick="gourl3()">snapchat</button>
+    <button onclick="gourl4()">epicgames</button>
+    <button onclick="gourl5()">infinitecampus</button>
+    <button onclick="gourl6()">canvas </button>
+    <button onclick="gourl7()">adobe</button>
+    <button onclick="gourl8()">googleclassroom</button>
+    <h1> </h1>
+    <h1>SimpleScript~</h1>
+    <h1> </h1>
+    <button onclick="questions()">how to use SimpleScript</button>
+    <h1> </h1>
+    <textarea id="SSscript" rows="25" cols="50">
+ask[code]
+iff[abc]
+txt[ ]
+txt[You are awesome]
+press run script, then type abc to get the text, You are awesome.
+    </textarea>
+    <h1> </h1>
+    <button onclick="runScript()">run script</button>
+    <style>
+        textarea {background-color: darkgray; border-color: green;}
+        input {background-color: darkgrey; border-color: green;}
+        button {background-color: darkgray; border-color: green;}
+        body {background-color: black; text-align: center; color: green;}
+    </style>
+    <script>
+        var auto = 0;
+        var autoIs = false;
+        const timer = setInterval(() => {
+            auto++;
+            if (auto >= 18){
+                console.log("timer complete");
+                var autoIs = true;
+                go();
+            }else{
+                console.log("10 sec has passed");
+            }
+        }, 10000);
+        function go(){
+            setTimeout(() => {
+                console.log("search starting...");
+                startWeb();
+            }, 100);
+        }
+        function startWeb(){
+            setTimeout(() => {
+                
+                console.log("No errors");
+                setTimeout(() => {
+                    urlGo();
+                }, 500)
+                function urlGo(){
+                    var txt = document.getElementById("searchStart");
+                    var txtval = txt.value;
+                    var list1 = ["google", "google.com", "Google", "Google.com", "youtube", "youtube.com", "Youtube", "Youtube.com", "gmail", "gmail.com", "Gmail", "Gmail.com", "yahoo", "yahoo.com", "Yahoo", "Yahoo.com", "yahoo mail", "Yahoo Mail", "Yahoo mail", "yahoomail.com", "Yahoomail.com", "github", "Github", "Github.com", "github.com", "GitHub", "GitHub.com", "steam", "Steam", "steam.com", "Steam.com", "epic", "epic games", "epicgames", "Epic", "Epic games", "Epic Games", "Epicgames", "EpicGames", "epic.com", "Epic.com", "epic games.com", "Epic games.com", "Epic Games.com", "epicgames.com", "Epicgames.com", "EpicGames.com", "microsoft",  "Microsoft", "microsoft.com", "Microsoft.com", "activision", "Activision", "activision.com", "Activision.com", "blizzard", "Blizzard", "blizzard.com", "Blizzard.com", "activision blizzard", "activisionblizzard", "Activision blizzard", "Activision Blizzard", "Activisionblizzard", "ActivisionBlizzard", "activision blizzard.com", "Activision blizzard.com", "Activision Blizzard.com", "activisionblizzard.com", "Activisionblizzard.com", "ActivisionBlizzard.com", "apple", "Apple", "apple.com", "Apple.com", "android", "Android", "android.com", "Android.com", "verizon", "Verizon", "verizon.com", "Verizon.com", "at&t", "At&t", "AT&T", "at&t.com", "At&t.com", "AT&T.com", "att", "Att", "ATT", "att.com", "Att.com", "ATT.com", "samsung", "Samsung", "samsung.com", "Samsung.com", "roblox", "Roblox", "roblox.com", "Roblox.com", "minecraft", "Minecraft", "minecraft.net", "Minecraft.net", "vs code", "visual studio code", "Visual studio code", "vs code.com", "visual studio code.com", "Visual studio code", "vsc", "vs", "visual studio", "Visual studio", "vs.com", "visual studio.com", "Visual studio.com", "python", "py", "pip", "python.org", "py.org", "pip.org", "Python", "Python.org", "js", "node", "nodejs", "javascript", "Node", "Javascript", "js.org", "node.org", "nodejs.org", "javascript.org", "Node.org", "Javascript.org", "gd", "GD", "google docs", "Google docs", "googledocs", "Googledocs", "gd.com", "GD.com", "google docs.com", "Google docs.com", "googledocs.com", "Googledocs.com", "canvas", "Canvas", "canvas.net", "Canvas.net", "ic", "IC", "infinit campus", "Infinit campus", "infinitcampus", "Infinitcampus", "ic.com", "IC.com", "infinit campus.com", "Infinut campus.com", "infinitcampus.com", "Infinitcampus.com", "adobe", "Adobe", "adobe.com", "Adobe.com", "autozone", "Autozone", "autozone.com", "Autozone.com", "oreilly", "Oreilly", "o'reilly", "O'Reily", "oreilly.com", "Oreilly.com", "o'reilly.com", "O'Reilly.com", "google chrome", "Google Chrome", "googlechrome", "Googlechrome", "discord", "Discord", "discord.com", "Discord.com", "snap", "Snap", "snapchat", "Snapchat", "snap.com", "Snap.com", "snapechat.com", "Snapchat.com", "Insta", "insta", "instagram", "Instagram", "Insta.com", "insta.com", "Instagram.com", "instagram.com", "facebook", "Facebook", "facebook.com", "Facebook.com", "tiktok", "Ticktok", "ticktok.com", "Tiktok.com"];
+                    var list2 = ["https://www.google.com", "https://www.google.com", "https://www.google.com", "https://www.google.com", "https://www.youtube.com", "https://www.youtube.com", "https://www.youtube.com", "https://www.youtube.com", "https://www.mail.google.com", "https://www.mail.google.com", "https://www.mail.google.com", "https://www.mail.google.com", "https://www.yahoo.com", "https://www.yahoo.com", "https://www.yahoo.com", "https://www.yahoo.com", "https://mail.yahoo.com", "https://mail.yahoo.com", "https://mail.yahoo.com", "https://mail.yahoo.com", "https://mail.yahoo.com", "https://www.github.com", "https://www.github.com", "https://www.github.com", "https://www.github.com", "https://www.github.com", "https://www.github.com", "https://store.steampowered.com", "https://store.steampowered.com", "https://store.steampowered.com", "https://store.steampowered.com", "https://store.epicgames.com", "https://store.epicgames.com", "https://store.epicgames.com", "https://store.epicgames.com", "https://store.epicgames.com", "https://store.epicgames.com", "https://store.epicgames.com", "https://store.epicgames.com", "https://store.epicgames.com", "https://store.epicgames.com", "https://store.epicgames.com", "https://store.epicgames.com", "https://store.epicgames.com", "https://store.epicgames.com", "https://store.epicgames.com", "https://store.epicgames.com", "https://www.microsoft.com", "https://www.microsoft.com", "https://www.microsoft.com", "https://www.microsoft.com", "https://www.activision.com", "https://www.activision.com", "https://www.activision.com", "https://www.activision.com", "https://blizzard.com", "https://blizzard.com", "https://blizzard.com", "https://blizzard.com", "https://www.activisionblizzard.com", "https://www.activisionblizzard.com", "https://www.activisionblizzard.com", "https://www.activisionblizzard.com", "https://www.activisionblizzard.com", "https://www.activisionblizzard.com", "https://www.activisionblizzard.com", "https://www.activisionblizzard.com", "https://www.activisionblizzard.com", "https://www.activisionblizzard.com", "https://www.activisionblizzard.com", "https://www.activisionblizzard.com", "https://www.apple.com", "https://www.apple.com", "https://www.apple.com", "https://www.apple.com", "https://www.android.com", "https://www.android.com", "https://www.android.com", "https://www.android.com", "https://www.verizon.com", "https://www.verizon.com", "https://www.verizon.com", "https://www.verizon.com", "https://www.att.com", "https://www.att.com", "https://www.att.com", "https://www.att.com", "https://www.att.com", "https://www.att.com", "https://www.att.com", "https://www.att.com", "https://www.att.com", "https://www.att.com", "https://www.att.com", "https://www.att.com", "https://www.samsung.com", "https://www.samsung.com", "https://www.samsung.com", "https://www.samsung.com", "https://www.roblox.com", "https://www.roblox.com", "https://www.roblox.com", "https://www.roblox.com", "https://www.minecraft.net", "https://www.minecraft.net", "https://www.minecraft.net", "https://www.minecraft.net", "https://www.code.visualstudio.com", "https://www.code.visualstudio.com", "https://www.code.visualstudio.com", "https://www.code.visualstudio.com", "https://www.code.visualstudio.com", "https://www.code.visualstudio.com", "https://www.code.visualstudio.com", "https://www.visualstudio.com", "https://www.visualstudio.com", "https://www.visualstudio.com", "https://www.visualstudio.com", "https://www.visualstudio.com", "https://www.visualstudio.com", "https://www.python.org", "https://www.python.org", "https://www.python.org", "https://www.python.org", "https://www.python.org", "https://www.python.org", "https://www.python.org", "https://www.python.org", "https://www.nodejs.org", "https://www.nodejs.org", "https://www.nodejs.org", "https://www.nodejs.org", "https://www.nodejs.org", "https://www.nodejs.org", "https://www.nodejs.org", "https://www.nodejs.org", "https://www.nodejs.org", "https://www.nodejs.org", "https://www.nodejs.org", "https://www.nodejs.org", "https://www.docs.google.com", "https://www.docs.google.com", "https://www.docs.google.com", "https://www.docs.google.com", "https://www.docs.google.com", "https://www.docs.google.com", "https://www.docs.google.com", "https://www.docs.google.com", "https://www.docs.google.com", "https://www.docs.google.com", "https://www.docs.google.com", "https://www.docs.google.com", "https://www.canvas.com", "https://www.canvas.com", "https://www.canvas.com", "https://www.canvas.com", "https://www.infinitecampus.com", "https://www.infinitecampus.com", "https://www.infinitecampus.com", "https://www.infinitecampus.com", "https://www.infinitcampus.com", "https://www.infinitcampus.com", "https://www.infinitecampus.com", "https://www.infinitecampus.com", "https://www.infinitecampus.com", "https://www.infinitecampus.com", "https://www.infinitecampus.com", "https://www.infinitecampus.com", "https://www.adobe.com", "https://www.adobe.com", "https://www.adobe.com", "https://www.adobe.com", "https://www.autozone.com", "https://www.autozone.com", "https://www.autozone.com", "https://www.autozone.com", "https://www.oreillyauto.com", "https://www.oreillyauto.com", "https://www.oreillyauto.com", "https://www.oreillyauto.com", "https://www.oreillyauto.com", "https://www.oreillyauto.com", "https://www.oreillyauto.com", "https://www.oreillyauto.com", "https://www.google.com", "https://www.google.com", "https://www.google.com", "https://www.google.com", "https://discord.com", "https://discord.com", "https://discord.com", "https://discord.com", "https://www.snapchat.com", "https://www.snapchat.com", "https://www.snapchat.com", "https://www.snapchat.com", "https://www.snapchat.com", "https://www.snapchat.com", "https://www.snapchat.com", "https://www.snapchat.com", "https://www.instagram.com", "https://www.instagram.com", "https://www.instagram.com", "https://www.instagram.com", "https://www.instagram.com", "https://www.instagram.com", "https://www.instagram.com", "https://www.instagram.com", "https://m.facebook.com", "https://m.facebook.com", "https://m.facebook.com", "https://m.facebook.com", "https://www.tiktok.com", "https://www.tiktok.com", "https://www.tiktok.com", "https://www.tiktok.com"];
+                    var listId = 0;
+                    var urlFound = false;
+                    clearInterval(timer);
+                    if (autoIs != false){
+                        alert("!auto redirected!");
+                    }
+                    if (txtval[0] == 'h' && txtval[1] == 't' && txtval[2] == 't' && txtval[3] == 'p' && txtval[4] == 's'){
+                        console.log("https");
+                        console.log("safe");
+                        setTimeout(() => {
+                            window.location.href = txtval;
+                        }, 500);
+                    }else{
+                        if (txtval[0] == 'h' && txtval[1] == 't' && txtval[2] == 't' && txtval[3] == 'p'){
+                            console.log("http");
+                            console.log("not safe");
+                            setTimeout(() => {
+                                alert("!warning!, http websites are not secure, close browser if you do not wish to couninue!");
+                                window.location.href = txtval;
+                            }, 500);
+                        }else{
+                            if (txtval[0] == 'w' && txtval[1] == 'w' && txtval[2] == 'w'){
+                                console.log("www");
+                                console.log("https only");
+                                setTimeout(() => {
+                                    window.location.href = "https://" + txtval;
+                                }, 500);
+                            }else{
+                                if (txtval[0] == ':' && txtval[1] == "/" && txtval[2] == '/'){
+                                    console.log("://");
+                                    console.log("https only");
+                                    setTimeout(() => {
+                                        window.location.href = "https" + txtval;
+                                    }, 500);
+                                }else{
+                                    for (var i = 0; i <= list1.length;){
+                                        if (list1[i] == txtval){
+                                            console.log("matchfound!");
+                                            var urlFound = true;
+                                            if (i != 0){
+                                                listId+=i;
+                                                console.log(listId);
+                                            }else{
+                                                console.log("no change");
+                                            }
+                                        }
+                                        i++;
+                                    }
+                                    if (urlFound == true){
+                                        setTimeout(() => {
+                                            window.location.href = list2[listId];
+                                        }, 500)
+                                    }else{
+                                        alert("Couldn't find website, try typing the url instead.");
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }, 100)
+        }
+        function cmd(){
+            var command = document.getElementById("searchStart");
+            var commandVal = command.value;
+            if (commandVal == "relodePage" || commandVal == "reload" || commandVal == "refresh"){
+                setTimeout(() => {
+                    window.location.reload();
+                }, 100);
+            }else{
+                if (commandVal == "ip" || commandVal == "Ip" || commandVal == "ipConfig" || commandVal == "ipconfig"){
+                    setTimeout(() => {
+                        var data1 = fetch("https://api.ipify.org/?format=json").then(function (response) {
+                            return response.json();
+                        }).then(function (obj) {
+                            console.log(obj);
+                            alert("check console to see your IP adress");
+                        }).catch(function (err) {
+                            console.log(err);
+                            alert("Something went wrong!");
+                        })
+                    }, 500);
+                }else{
+                    if (commandVal == "geo" || commandVal == "coords" || commandVal == "coor" || commandVal == "location" || commandVal == "pos"){
+                        setTimeout(() => {
+                            if (navigator.geolocation){
+                                navigator.geolocation.getCurrentPosition(showPosition);
+                                function showPosition(Position){
+                                    alert("Latitude: " + Position.coords.latitude + " Longitude: " + Position.coords.longitude);
+                                }
+                            }else{
+                                console.log("geolocation denied");
+                                alert("Sorry, geolocation is not supported on your normal browser, device, or admin.");
+                            }
+                        }, 500);
+                    }
+                }
+            }
+        }
+        function gourl1(){
+            setTimeout(() => {
+                window.location.href = "https://www.google.com";
+            }, 500);
+        }
+        function gourl2(){
+            setTimeout(() => {
+                window.location.href = "https://www.tiktok.com";
+            }, 500);
+        }
+        function gourl3(){
+            setTimeout(() => {
+                window.location.href = "https://www.snapchat.com";
+            }, 500);
+        }
+        function gourl4(){
+            setTimeout(() => {
+                window.location.href = "https://store.epicgames.com";
+            }, 500);
+        }
+        function gourl5(){
+            setTimeout(() => {
+                window.location.href = "https://www.infinitecampus.com";
+            }, 500);
+        }
+        function gourl6(){
+            setTimeout(() => {
+                window.location.href = "https://canvas.instructure.com";
+            }, 500);
+        }
+        function gourl7(){
+            setTimeout(() => {
+                window.location.href = "https://www.Adobe.com";
+            }, 500);
+        }
+        function gourl8(){
+            setTimeout(() => {
+                window.location.href = "https://sites.google.com/view/classroom-workspace/";
+            }, 500);
+        }
+        function runScript(){
+            var SS = document.getElementById("SSscript");
+            var SSValue = SSscript.value;
+            var curr = "none";
+            var possible = "none";
+            var t1 = "none";
+            var t2 = "none";
+            var t3 = "none";
+            var b1 = 0;
+            var index = [];
+            var store1A = 0;
+            var no = 0;
+            var variableStore = [];
+            var conditionStore = [];
+            var out = 0;
+            for (var i = 0; i <= SSValue.length;){
+                var line = SSValue[i];
+                if (curr == "none" && out == false){
+                    if (possible == "none"){
+                        if (line == "t" || line == "T"){
+                            var possible = "txt";
+                            var t1 = "t";
+                        }
+                        if (line == "c" || line == "C"){
+                            var possible = "Cor";
+                            var t1 = "c";
+                        }
+                        if (line == "r" || line == "R"){
+                            var possible = "red";
+                            var t1 = "r";
+                        }
+                        if (line == "a" || line == "A"){
+                            var possible = "ask";
+                            var t1 = "a";
+                        }
+                        if (line == "i" || line == "I"){
+                            var possible = "iff";
+                            var t1 = "i";
+                        }
+                    }else{
+                        if (t2 == "none"){
+                            if (line == "x" || line == "X"){
+                                var t2 = "x";
+                            }
+                            if (line == "o" || line == "O"){
+                                var t2 = "o";
+                            }
+                            if (line == "e" || line == "E"){
+                                var t2 = "e";
+                            }
+                            if (line == "s" || line == "S"){
+                                var t2 = "s";
+                            }
+                            if (line == "f" || line == "F"){
+                                var t2 = "f";
+                            }
+                        }else{
+                            if (line == "t" || line == "T"){
+                                var t3 = "t";
+                                var curr = "txt";
+                            }
+                            if (line == "r" || line == "R"){
+                                var t3 = "r";
+                                var curr = "cor";
+                            }
+                            if (line == "d" || line == "D"){
+                                var t3 = "d";
+                                var curr = "red";
+                            }
+                            if (line == "k" || line == "K"){
+                                var t3 = "k";
+                                var curr = "ask";
+                            }
+                            if (line == "f" || line == "F"){
+                                var t3 = "f";
+                                var curr = "iff";
+                            }
+                            console.log("curr: " + curr);
+                        }
+                    }
+                }else{
+                    if (b1 == 0 && line == "["){
+                        b1++;
+                    }else{
+                        if (b1 <= 0){
+                            alert("!Error in code!");
+                        }else{
+                            if (line == "]" && no == 0){
+                                if (curr == "txt"){
+                                    var variableStoreA = 0;
+                                    for (var ind = 0; ind <= index.length;){
+                                        if (index[ind] == "^"){
+                                            console.log("saveSuccesful");
+                                            variableStoreA++;
+                                        }
+                                        variableStoreA++;
+                                        ind++;
+                                    }
+                                    if (variableStoreA == 1){
+                                        index.splice(0)
+                                        alert(variableStore);
+                                    }else{
+                                        if (variableStoreA >= 2){
+                                            alert(index + variableStore);
+                                        }else{
+                                            index.splice(0);
+                                            alert(index);
+                                        }
+                                    }
+                                    while (variableStoreA != 0){
+                                        variableStoreA--;
+                                        if (variableStoreA < 0){
+                                            alert("!An error has accoured!");
+                                            break;
+                                        }
+                                    }
+                                }else{
+                                    if (curr == "cor"){
+                                        if (navigator.geolocation){
+                                            navigator.geolocation.getCurrentPosition(showPosition);
+                                            function showPosition(Position){
+                                                alert("Latitude: " + Position.coords.latitude + " Longitude: " + Position.coords.longitude);
+                                            }
+                                         }else{
+                                            console.log("geolocation denied");
+                                            alert("Sorry, geolocation is not supported on your normal browser, device, or admin.");
+                                        }
+                                    }else{
+                                        if (curr == "red"){
+                                            var goSite = prompt("website url: ");
+                                            if (goSite == null || goSite == "" || goSite == " " || goSite == "no" || goSite == "No" || goSite == "stop" || goSite == "Stop"){
+                                                alert("Redirect cancled.");
+                                            }else{
+                                                setTimeout(() => {
+                                                    alert("Going to: " + goSite);
+                                                    window.location.href = goSite;
+                                                }, 500);
+                                            }
+                                        }else{
+                                            if (curr == "ask"){
+                                                var askP = prompt(index + ": ");
+                                                var info = askP;
+                                                console.log(info);
+                                                for (var askL = 0; askL <= askP.length;){
+                                                    var line1 = info[askL];
+                                                    console.log(line1);
+                                                    variableStore.push(line1);
+                                                    askL++;
+                                                }
+                                                index.splice(0);
+                                            }else{
+                                                if (curr == "iff"){
+                                                    console.log("var, " + variableStore);
+                                                    console.log("con, " + conditionStore);
+                                                    var corrNum = conditionStore.length
+                                                    console.log("corr length, " + corrNum);
+                                                    var realNum = (corrNum - 1);
+                                                    console.log("corr value, " + realNum);
+                                                    var valueShown = 0;
+                                                    var newIffI = 1;
+                                                    for (var iffI = 0; iffI <= variableStore.length;){
+                                                        console.log("in for loop");
+                                                        if (variableStore[iffI] == conditionStore[newIffI]){
+                                                            if (variableStore == null || conditionStore == "" || conditionStore == " "){
+                                                                newIffI++;
+                                                                iffI++;
+                                                                continue;
+                                                            }else{
+                                                                if (conditionStore == null || conditionStore == "" || conditionStore == " "){
+                                                                    newIffI++;
+                                                                    iffI++;
+                                                                    continue;
+                                                                }else{
+                                                                    if (newIffI > iffI){
+                                                                        valueShown++;
+                                                                        iffI++;
+                                                                        newIffI++;
+                                                                    }
+                                                                }
+                                                            }
+                                                        }else{
+                                                            iffI++;
+                                                            newIffI++;
+                                                        }
+                                                    }
+                                                    console.log(valueShown);
+                                                    if (valueShown >= realNum){
+                                                        console.log("granted");
+                                                    }else{
+                                                        console.log("denied");
+                                                        out++;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                if (curr == "txt" || curr == "ask"){
+                                    index.splice(0);
+                                }
+                                if (curr != "none"){
+                                    var curr = "none";
+                                }
+                                if (possible != "none"){
+                                    var possible = "none";
+                                }
+                                if (t1 != "none"){
+                                    var t1 = "none";
+                                }
+                                if (t2 != "none"){
+                                    var t2 = "none";
+                                }
+                                if (t3 != "none"){
+                                    var t3 = "none";
+                                }
+                                if (b1 != "none"){
+                                    var b1 = "none";
+                                }
+                                console.log("check: " + curr);
+                                if (curr != "none"){
+                                    alert("!Error has accoured!");
+                                }else{
+                                    console.log("Error report = 0");
+                                }
+                            }else{
+                                console.log(line);
+                                if (curr == "iff"){
+                                    if (curr == "["){
+                                        continue;
+                                    }else{
+                                        conditionStore.push(line);
+                                    }
+                                }else{
+                                    index.push(line);
+                                }
+                            }
+                        }
+                    }
+                }
+                i++;
+            }
+        }
+        function questions(){
+            setTimeout(() => {
+                alert("1.) txt[whatever you want to type], this will say whatever you type.");
+                alert("2.) red[], this will ask the user to redirect to the website of their choice.");
+                alert("3.) cor[], this will say the users coordinates.");
+                alert("4.) ask[your question], this will ask the user a question of your choice.");
+                alert("5.) iff[condition of ask[]], if the condition of ask[] is true then the user will go through the rest of the code");
+                alert("6.) txt[^] this will type the users response to ask[]");
+            }, 500);
+        }
+    </script>
+</body>
+</html>
