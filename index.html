@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8RW9P6BJYB"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-8RW9P6BJYB');
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BetterBrowse</title>
@@ -29,23 +20,10 @@
     <button onclick="gourl7()">adobe</button>
     <button onclick="gourl8()">googleclassroom</button>
     <h1> </h1>
-    <h1>SimpleScript~</h1>
+    <h1 id="clock"></h1>
     <h1> </h1>
-    <button onclick="questions()">how to use SimpleScript</button>
     <h1> </h1>
-    <textarea id="SSscript" rows="25" cols="50">
-ask[code]
-iff[abc]
-txt[You are awesome]
-press run script, then type abc to get the text, You are awesome.
-    </textarea>
-    <h1> </h1>
-    <button onclick="runScript()">run script</button>
-    <h1> </h1>
-    <h1>!NEW! BetterBuild is the start of BetterBrowse's 3d render!</h1>
-    <h1> </h1>
-    <button onclick="threeDTP()">BetterBuild~</button>
-    <h1> </h1>
+    <button onclick="betterCommand()">BetterCommand~</button>
     <style>
         textarea {background-color: darkgray; border-color: green;}
         input {background-color: darkgrey; border-color: green;}
@@ -93,7 +71,7 @@ press run script, then type abc to get the text, You are awesome.
                         console.log("https");
                         console.log("safe");
                         setTimeout(() => {
-                            window.location.href = txtval;
+                            window.open(txtval);
                         }, 500);
                     }else{
                         if (txtval[0] == 'h' && txtval[1] == 't' && txtval[2] == 't' && txtval[3] == 'p'){
@@ -101,21 +79,21 @@ press run script, then type abc to get the text, You are awesome.
                             console.log("not safe");
                             setTimeout(() => {
                                 alert("!warning!, http websites are not secure, close browser if you do not wish to couninue!");
-                                window.location.href = txtval;
+                                window.open(txtval);
                             }, 500);
                         }else{
                             if (txtval[0] == 'w' && txtval[1] == 'w' && txtval[2] == 'w'){
                                 console.log("www");
                                 console.log("https only");
                                 setTimeout(() => {
-                                    window.location.href = "https://" + txtval;
+                                    window.open("https://" + txtval);
                                 }, 500);
                             }else{
                                 if (txtval[0] == ':' && txtval[1] == "/" && txtval[2] == '/'){
                                     console.log("://");
                                     console.log("https only");
                                     setTimeout(() => {
-                                        window.location.href = "https" + txtval;
+                                        window.open("https" + txtval);
                                     }, 500);
                                 }else{
                                     for (var i = 0; i <= list1.length;){
@@ -133,7 +111,7 @@ press run script, then type abc to get the text, You are awesome.
                                     }
                                     if (urlFound == true){
                                         setTimeout(() => {
-                                            window.location.href = list2[listId];
+                                            window.open(list2[listId]);
                                         }, 500)
                                     }else{
                                         alert("Couldn't find website, try typing the url instead.");
@@ -184,300 +162,63 @@ press run script, then type abc to get the text, You are awesome.
         }
         function gourl1(){
             setTimeout(() => {
-                window.location.href = "https://www.google.com";
+                window.open("https://www.google.com");
             }, 500);
         }
         function gourl2(){
             setTimeout(() => {
-                window.location.href = "https://www.tiktok.com";
+                window.open("https://www.tiktok.com");
             }, 500);
         }
         function gourl3(){
             setTimeout(() => {
-                window.location.href = "https://www.snapchat.com";
+                window.open("https://www.snapchat.com");
             }, 500);
         }
         function gourl4(){
             setTimeout(() => {
-                window.location.href = "https://store.epicgames.com";
+                window.open("https://store.epicgames.com");
             }, 500);
         }
         function gourl5(){
             setTimeout(() => {
-                window.location.href = "https://www.infinitecampus.com";
+                window.open("https://www.infinitecampus.com");
             }, 500);
         }
         function gourl6(){
             setTimeout(() => {
-                window.location.href = "https://canvas.instructure.com";
+                window.open("https://canvas.instructure.com");
             }, 500);
         }
         function gourl7(){
             setTimeout(() => {
-                window.location.href = "https://www.Adobe.com";
+                window.open("https://www.Adobe.com");
             }, 500);
         }
         function gourl8(){
             setTimeout(() => {
-                window.location.href = "https://sites.google.com/view/classroom-workspace/";
+                window.open("https://sites.google.com/view/classroom-workspace/");
             }, 500);
         }
-        function runScript(){
-            var SS = document.getElementById("SSscript");
-            var SSValue = SSscript.value;
-            var curr = "none";
-            var possible = "none";
-            var t1 = "none";
-            var t2 = "none";
-            var t3 = "none";
-            var b1 = 0;
-            var index = [];
-            var store1A = 0;
-            var no = 0;
-            var variableStore = [];
-            var conditionStore = [];
-            var out = 0;
-            for (var i = 0; i <= SSValue.length;){
-                var line = SSValue[i];
-                if (curr == "none" && out == false){
-                    if (possible == "none"){
-                        if (line == "t" || line == "T"){
-                            var possible = "txt";
-                            var t1 = "t";
-                        }
-                        if (line == "c" || line == "C"){
-                            var possible = "Cor";
-                            var t1 = "c";
-                        }
-                        if (line == "r" || line == "R"){
-                            var possible = "red";
-                            var t1 = "r";
-                        }
-                        if (line == "a" || line == "A"){
-                            var possible = "ask";
-                            var t1 = "a";
-                        }
-                        if (line == "i" || line == "I"){
-                            var possible = "iff";
-                            var t1 = "i";
-                        }
-                    }else{
-                        if (t2 == "none"){
-                            if (line == "x" || line == "X"){
-                                var t2 = "x";
-                            }
-                            if (line == "o" || line == "O"){
-                                var t2 = "o";
-                            }
-                            if (line == "e" || line == "E"){
-                                var t2 = "e";
-                            }
-                            if (line == "s" || line == "S"){
-                                var t2 = "s";
-                            }
-                            if (line == "f" || line == "F"){
-                                var t2 = "f";
-                            }
-                        }else{
-                            if (line == "t" || line == "T"){
-                                var t3 = "t";
-                                var curr = "txt";
-                            }
-                            if (line == "r" || line == "R"){
-                                var t3 = "r";
-                                var curr = "cor";
-                            }
-                            if (line == "d" || line == "D"){
-                                var t3 = "d";
-                                var curr = "red";
-                            }
-                            if (line == "k" || line == "K"){
-                                var t3 = "k";
-                                var curr = "ask";
-                            }
-                            if (line == "f" || line == "F"){
-                                var t3 = "f";
-                                var curr = "iff";
-                            }
-                            console.log("curr: " + curr);
-                        }
-                    }
-                }else{
-                    if (b1 == 0 && line == "["){
-                        b1++;
-                    }else{
-                        if (b1 <= 0){
-                            alert("!Error in code!");
-                        }else{
-                            if (line == "]" && no == 0){
-                                if (curr == "txt"){
-                                    var variableStoreA = 0;
-                                    for (var ind = 0; ind <= index.length;){
-                                        if (index[ind] == "^"){
-                                            console.log("saveSuccesful");
-                                            variableStoreA++;
-                                        }
-                                        variableStoreA++;
-                                        ind++;
-                                    }
-                                    if (variableStoreA == 1){
-                                        index.splice(0)
-                                        alert(variableStore);
-                                    }else{
-                                        if (variableStoreA >= 2){
-                                            alert(index + variableStore);
-                                        }else{
-                                            index.splice(0);
-                                            alert(index);
-                                        }
-                                    }
-                                    while (variableStoreA != 0){
-                                        variableStoreA--;
-                                        if (variableStoreA < 0){
-                                            alert("!An error has accoured!");
-                                            break;
-                                        }
-                                    }
-                                }else{
-                                    if (curr == "cor"){
-                                        if (navigator.geolocation){
-                                            navigator.geolocation.getCurrentPosition(showPosition);
-                                            function showPosition(Position){
-                                                alert("Latitude: " + Position.coords.latitude + " Longitude: " + Position.coords.longitude);
-                                            }
-                                         }else{
-                                            console.log("geolocation denied");
-                                            alert("Sorry, geolocation is not supported on your normal browser, device, or admin.");
-                                        }
-                                    }else{
-                                        if (curr == "red"){
-                                            var goSite = prompt("website url: ");
-                                            if (goSite == null || goSite == "" || goSite == " " || goSite == "no" || goSite == "No" || goSite == "stop" || goSite == "Stop"){
-                                                alert("Redirect cancled.");
-                                            }else{
-                                                setTimeout(() => {
-                                                    alert("Going to: " + goSite);
-                                                    window.location.href = goSite;
-                                                }, 500);
-                                            }
-                                        }else{
-                                            if (curr == "ask"){
-                                                var askP = prompt(index + ": ");
-                                                var info = askP;
-                                                console.log(info);
-                                                for (var askL = 0; askL <= askP.length;){
-                                                    var line1 = info[askL];
-                                                    console.log(line1);
-                                                    variableStore.push(line1);
-                                                    askL++;
-                                                }
-                                                index.splice(0);
-                                            }else{
-                                                if (curr == "iff"){
-                                                    console.log("var, " + variableStore);
-                                                    console.log("con, " + conditionStore);
-                                                    var corrNum = conditionStore.length
-                                                    console.log("corr length, " + corrNum);
-                                                    var realNum = (corrNum - 1);
-                                                    console.log("corr value, " + realNum);
-                                                    var valueShown = 0;
-                                                    var newIffI = 1;
-                                                    for (var iffI = 0; iffI <= variableStore.length;){
-                                                        console.log("in for loop");
-                                                        if (variableStore[iffI] == conditionStore[newIffI]){
-                                                            if (variableStore == null || conditionStore == "" || conditionStore == " "){
-                                                                newIffI++;
-                                                                iffI++;
-                                                                continue;
-                                                            }else{
-                                                                if (conditionStore == null || conditionStore == "" || conditionStore == " "){
-                                                                    newIffI++;
-                                                                    iffI++;
-                                                                    continue;
-                                                                }else{
-                                                                    if (newIffI > iffI){
-                                                                        valueShown++;
-                                                                        iffI++;
-                                                                        newIffI++;
-                                                                    }
-                                                                }
-                                                            }
-                                                        }else{
-                                                            iffI++;
-                                                            newIffI++;
-                                                        }
-                                                    }
-                                                    console.log(valueShown);
-                                                    if (valueShown >= realNum){
-                                                        console.log("granted");
-                                                    }else{
-                                                        console.log("denied");
-                                                        out++;
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                                if (curr == "txt" || curr == "ask"){
-                                    index.splice(0);
-                                }
-                                if (curr != "none"){
-                                    var curr = "none";
-                                }
-                                if (possible != "none"){
-                                    var possible = "none";
-                                }
-                                if (t1 != "none"){
-                                    var t1 = "none";
-                                }
-                                if (t2 != "none"){
-                                    var t2 = "none";
-                                }
-                                if (t3 != "none"){
-                                    var t3 = "none";
-                                }
-                                if (b1 != "none"){
-                                    var b1 = "none";
-                                }
-                                console.log("check: " + curr);
-                                if (curr != "none"){
-                                    alert("!Error has accoured!");
-                                }else{
-                                    console.log("Error report = 0");
-                                }
-                            }else{
-                                console.log(line);
-                                if (curr == "iff"){
-                                    if (curr == "["){
-                                        continue;
-                                    }else{
-                                        conditionStore.push(line);
-                                    }
-                                }else{
-                                    index.push(line);
-                                }
-                            }
-                        }
-                    }
-                }
-                i++;
-            }
-        }
-        function questions(){
+        function updateTime() {
+            const timeElement = document.getElementById("clock");
             setTimeout(() => {
-                alert("1.) txt[whatever you want to type], this will say whatever you type.");
-                alert("2.) red[], this will ask the user to redirect to the website of their choice.");
-                alert("3.) cor[], this will say the users coordinates.");
-                alert("4.) ask[your question], this will ask the user a question of your choice.");
-                alert("5.) iff[condition of ask[]], if the condition of ask[] is true then the user will go through the rest of the code");
-                alert("6.) txt[^] this will type the users response to ask[]");
+                setInterval (() => {
+                var date = new Date();
+                var hours = date.getHours();
+                var minutes = date.getMinutes();
+                var seconds = date.getSeconds();
+                var clockStr = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                timeElement.innerText = clockStr;
+                }, 1000);
             }, 500);
         }
-        function threeDTP(){
-            console.log("redirecting to BetterBuild~");
-            window.location.href = "https://oo159.github.io/BetterBrowse-BetterBuild/";
+        function betterCommand(){
+            setTimeout(() => {
+                window.open("https://oo159.github.io/BetterBrowse-BetterCommand/");
+            }, 500);
         }
+        updateTime();
     </script>
 </body>
 </html>
