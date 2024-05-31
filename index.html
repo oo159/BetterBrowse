@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,25 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BetterBrowse</title>
 </head>
-<body background="BetterBrowse background 1.png">
+<body background="BetterBrowse background 1.png" onload="savedItems()">
     <h1>BetterBrowse~</h1>
     <input id = "searchStart">
     <button onclick="go()">Search</button>
     <button onclick="cmd()">Command</button>
     <h1> </h1>
-    <button onclick="gourl1()">google</button>
-    <button onclick="gourl2()">tiktok</button>
-    <button onclick="gourl3()">snapchat</button>
-    <button onclick="gourl4()">epicgames</button>
-    <button onclick="gourl5()">infinitecampus</button>
-    <button onclick="gourl6()">canvas </button>
-    <button onclick="gourl7()">adobe</button>
-    <button onclick="gourl8()">googleclassroom</button>
     <h1> </h1>
     <h1 id="clock"></h1>
     <h1> </h1>
     <h1> </h1>
     <button onclick="betterCommand()">BetterCommand~</button>
+    <h1> </h1>
+    <h1>Add to saved links~</h1>
+    <h1> </h1>
+    <input id="txtSave">
+    <button onclick="saveNewItems()">save shortcut</button>
+    <h1> </h1>
+    <h1>Saved Links~</h1>
+    <h1> </h1>
     <style>
         textarea {background-color: darkgray; border-color: green;}
         input {background-color: gray; border-color: green;}
@@ -51,7 +52,6 @@
         }
         function startWeb(){
             setTimeout(() => {
-                
                 console.log("No errors");
                 setTimeout(() => {
                     urlGo();
@@ -160,45 +160,61 @@
                 }
             }
         }
-        function gourl1(){
-            setTimeout(() => {
-                window.open("https://www.google.com");
-            }, 500);
+        var s1 = localStorage.getItem("stored1");
+        var s2 = localStorage.getItem("stored2");
+        var s3 = localStorage.getItem("stored3");
+        function saveNewItems(){
+            var txtItem = document.getElementById("txtSave");
+            var txtItemV = txtItem.value;
+            if (s1 == null || s1 == "null" || s1 == "none"){
+                localStorage.setItem("stored1", txtItemV);
+            }else{
+                if (s2 == null || s2 == "null" || s2 == "none"){
+                    localStorage.setItem("stored2", txtItemV);
+                }else{
+                    if (s3 == null || s3 == "null" || s3 == "none"){
+                        localStorage.setItem("stored3", txtItemV);
+                    }else{
+                        localStorage.setItem("stored3", "none");
+                        localStorage.setItem("stored2", "none");
+                        localStorage.setItem("stored1", "none");
+                        localStorage.setItem("stored1", txtItemV);
+                    }
+                }
+            }
+            window.location.reload();
         }
-        function gourl2(){
-            setTimeout(() => {
-                window.open("https://www.tiktok.com");
-            }, 500);
-        }
-        function gourl3(){
-            setTimeout(() => {
-                window.open("https://www.snapchat.com");
-            }, 500);
-        }
-        function gourl4(){
-            setTimeout(() => {
-                window.open("https://store.epicgames.com");
-            }, 500);
-        }
-        function gourl5(){
-            setTimeout(() => {
-                window.open("https://www.infinitecampus.com");
-            }, 500);
-        }
-        function gourl6(){
-            setTimeout(() => {
-                window.open("https://canvas.instructure.com");
-            }, 500);
-        }
-        function gourl7(){
-            setTimeout(() => {
-                window.open("https://www.Adobe.com");
-            }, 500);
-        }
-        function gourl8(){
-            setTimeout(() => {
-                window.open("https://sites.google.com/view/classroom-workspace/");
-            }, 500);
+        function savedItems(){
+            if (s1 != null && s1 != "null" && s1 != "none"){
+                var s1B = document.createElement('button');
+                s1B.textContent = s1;
+                document.body.appendChild(s1B);
+                s1B.addEventListener('click', () => {
+                    setTimeout(() => {
+                        window.open(s1);
+                    }, 500);
+                });
+            }
+            if (s2 != null && s2 != "null" && s2 != "none"){
+                var s2B = document.createElement('button');
+                s2B.textContent = s2;
+                document.body.appendChild(s2B);
+                s2B.addEventListener('click', () => {
+                    setTimeout(() => {
+                        window.open(s2);
+                    }, 500);
+                });
+            }
+            if (s3 != null && s3 != "null" && s3 != "none"){
+                var s3B = document.createElement('button');
+                s3B.textContent = s3;
+                document.body.appendChild(s3B);
+                s3B.addEventListener('click', () => {
+                    setTimeout(() => {
+                        window.open(s3);
+                    }, 500);
+                });
+            }
         }
         function updateTime() {
             const timeElement = document.getElementById("clock");
