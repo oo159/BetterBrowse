@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,30 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BetterBrowse</title>
 </head>
-<body background="red backgrond betterbrowse.png" onload="savedItems()">
+<body background="C:\Users\Da verminator\Pictures\red backgrond betterbrowse.png" onload="ifpass(), savedItems()">
+    <button onclick="account()">Account Info</button>
+    <h1> </h1>
     <h1>BetterBrowse~</h1>
     <input id = "searchStart">
     <button onclick="go()">Search</button>
-    <button onclick="cmd()">Command</button>
     <h1> </h1>
-    <h1> </h1>
-    <h1 id="clock"></h1>
-    <h1> </h1>
-    <h1> </h1>
-    <button onclick="betterCommand()">BetterCommand~</button>
-    <h1> </h1>
-    <h1>Add to saved links~</h1>
     <h1> </h1>
     <input id="txtSave">
     <button onclick="saveNewItems()">save shortcut</button>
     <h1> </h1>
-    <h1>Saved Links~</h1>
+    <h1> </h1>
+    <h1> </h1>
+    <h1> </h1>
+    <h1> </h1>
+    <h1> </h1>
+    <h1> </h1>
     <h1> </h1>
     <style>
-        textarea {background-color: darkgray; border-color: green;}
-        input {background-color: gray; border-color: green;}
-        button {background-color: gray; border-color: green;}
-        body {background-size: 100%; text-align: center; color: green;}
+        textarea {background-color: darkgray; border-color: black;}
+        input {background-color: gray; border-color: black; border-radius: 12px; padding: 5px; font-size: 16px; box-shadow: 0 2px green;  text-align: center; text-shadow: 0 1px green;}
+        button {background-color: gray; border-color: black; border-radius: 12px; padding: 5px; font-size: 16px; box-shadow: 0 2px green; text-align: center; text-shadow: 0 1px green;}
+        body {background-size: cover; text-align: center; color: green; text-shadow: 0 1px lawngreen;}
     </style>
     <script>
         var auto = 0;
@@ -123,43 +121,6 @@
                 }
             }, 100)
         }
-        function cmd(){
-            var command = document.getElementById("searchStart");
-            var commandVal = command.value;
-            if (commandVal == "relodePage" || commandVal == "reload" || commandVal == "refresh"){
-                setTimeout(() => {
-                    window.location.reload();
-                }, 100);
-            }else{
-                if (commandVal == "ip" || commandVal == "Ip" || commandVal == "ipConfig" || commandVal == "ipconfig"){
-                    setTimeout(() => {
-                        var data1 = fetch("https://api.ipify.org/?format=json").then(function (response) {
-                            return response.json();
-                        }).then(function (obj) {
-                            console.log(obj);
-                            alert("check console to see your IP adress");
-                        }).catch(function (err) {
-                            console.log(err);
-                            alert("Something went wrong!");
-                        })
-                    }, 500);
-                }else{
-                    if (commandVal == "geo" || commandVal == "coords" || commandVal == "coor" || commandVal == "location" || commandVal == "pos"){
-                        setTimeout(() => {
-                            if (navigator.geolocation){
-                                navigator.geolocation.getCurrentPosition(showPosition);
-                                function showPosition(Position){
-                                    alert("Latitude: " + Position.coords.latitude + " Longitude: " + Position.coords.longitude);
-                                }
-                            }else{
-                                console.log("geolocation denied");
-                                alert("Sorry, geolocation is not supported on your normal browser, device, or admin.");
-                            }
-                        }, 500);
-                    }
-                }
-            }
-        }
         var s1 = localStorage.getItem("stored1");
         var s2 = localStorage.getItem("stored2");
         var s3 = localStorage.getItem("stored3");
@@ -216,25 +177,202 @@
                 });
             }
         }
-        function updateTime() {
-            const timeElement = document.getElementById("clock");
+        var code = localStorage.getItem("passcode");
+        function ifpass(){
+            if (code == null || code == "null"){
+                console.log("password = false");
+            }else{
+                var user = prompt("password: ");
+                if (user == code){
+                    console.log("password = true");
+                }else{
+                    console.log("password = wrong");
+                    window.close();
+                }
+            }
+        }
+        var author = localStorage.getItem("authorise");
+        var code2 = localStorage.getItem("code2");
+        var n1 = localStorage.getItem("note1");
+        var n2 = localStorage.getItem("note2");
+        var n3 = localStorage.getItem("note3");
+        var n4 = localStorage.getItem("note4");
+        var n5 = localStorage.getItem("note5");
+        function account(){
+            var passed = false;
             setTimeout(() => {
-                setInterval (() => {
-                var date = new Date();
-                var hours = date.getHours();
-                var minutes = date.getMinutes();
-                var seconds = date.getSeconds();
-                var clockStr = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-                timeElement.innerText = clockStr;
-                }, 1000);
+                if (author == "accept"){
+                    if (code2 == null || code2 == "null"){
+                        console.log("password = false");
+                    }else{
+                        var user2 = prompt("password: ");
+                        if (user2 == code2){
+                            console.log("password = true");
+                            var passed = true;
+                        }else{
+                            console.log("password = wrong");
+                            window.close();
+                        }
+                    }
+                }else{
+                    var passed = true;
+                }
+                if (passed == true){
+                    document.write("<h1>BetterBrowse~</h1>");
+                    document.write("<h1> </h1>");
+                    document.write("<h1>Account Settings~</h1>");
+                    document.write("<h1> </h1>");
+                    document.write("<style>textarea {background-color: darkgray; border-color: black;}input {background-color: gray; border-color: black; border-radius: 12px; padding: 5px; font-size: 16px; box-shadow: 0 2px green;  text-align: center; text-shadow: 0 1px green;}button {background-color: gray; border-color: black; border-radius: 12px; padding: 5px; font-size: 16px; box-shadow: 0 2px green; text-align: center; text-shadow: 0 1px green;}body {background-size: cover; text-align: center; color: green; text-shadow: 0 1px lawngreen; background-color: black;}</style>");
+                    var aa = document.createElement('button');
+                    aa.textContent = "settings authentication(on/change)";
+                    document.body.appendChild(aa);
+                    aa.addEventListener('click', () => {
+                        setTimeout(() => {
+                            if(confirm("Do you want to turn on or change settings authentication password? This will make sure that only you can change your settings.")){
+                                console.log("continue");
+                                var settingsPass = prompt("password for settings: ");
+                                if (settingsPass != null){
+                                    localStorage.setItem("authorise", "accept");
+                                    localStorage.setItem("code2", settingsPass);
+                                }else{
+                                    alert("You didn't type anything in, so their has been no changes");
+                                }
+                            }else{
+                                console.log("canceled");
+                            }
+                        }, 500);
+                    });
+                    document.write("<h1> </h1>");
+                    var bb = document.createElement('button');
+                    bb.textContent = "login password(on/change)";
+                    document.body.appendChild(bb);
+                    bb.addEventListener('click', () => {
+                        setTimeout(() => {
+                            if(confirm("Do you want to add or change your login password? This will make sure that only you can use this browser account")){
+                                console.log("continue");
+                                var logPass = prompt("login password: ");
+                                if (logPass != null){
+                                    localStorage.setItem("passcode", logPass);
+                                }else{
+                                    alert("You didn't type anything in, so their has been no changes");
+                                }
+                            }else{
+                                console.log("canceled");
+                            }
+                        }, 500);
+                    });
+                    document.write("<h1> </h1>");
+                    var cc = document.createElement('button');
+                    cc.textContent = "save new notes";
+                    document.body.appendChild(cc);
+                    cc.addEventListener('click', () => {
+                        setTimeout(() => {
+                            var newNote = prompt("note you want to take(!you have a limit of 5 notes!): ");
+                            if (n1 == null || n1 == "null"){
+                                localStorage.setItem("note1", newNote);
+                            }else{
+                                if (n2 == null || n2 == "null"){
+                                    localStorage.setItem("note2", newNote);
+                                }else{
+                                    if (n3 == null || n3 == "null"){
+                                        localStorage.setItem("note3", newNote);
+                                    }else{
+                                        if (n4 == null || n4 == "null"){
+                                            localStorage.setItem("note4", newNote);
+                                        }else{
+                                            if (n5 == null || n5 == "null"){
+                                                localStorage.setItem("note5", newNote);
+                                            }else{
+                                                if(confirm("to take this note you will have to delete one note")){
+                                                    var delete1 = prompt("type the note number you wnt to delete(1, 2, 3, 4, 5): ");
+                                                    if (delete1 == 1){
+                                                        localStorage.setItem("note1", newNote);
+                                                    }
+                                                    if (delete1 == 2){
+                                                        localStorage.setItem("note2", newNote);
+                                                    }
+                                                    if (delete1 == 3){
+                                                        localStorage.setItem("note3", newNote);
+                                                    }
+                                                    if (delete1 == 4){
+                                                        localStorage.setItem("note4", newNote);
+                                                    }
+                                                    if (delete1 == 5){
+                                                        localStorage.setItem("note5", newNote);
+                                                    }else{
+                                                        alert("canceled");
+                                                    }
+                                                }else{
+                                                    console.log("canceled");
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }, 500);
+                    });
+                    if(n1 != null && n1 != "null"){
+                        document.write("<h1>Notes~</h1>");
+                    }
+                    document.write("<h1> </h1>");
+                    if(n1 != null && n1 != "null"){
+                        var dd = document.createElement('button');
+                        dd.textContent = n1;
+                        document.body.appendChild(dd);
+                        dd.addEventListener('click', () => {
+                            setTimeout(() => {
+                                alert("This is note 1");
+                            }, 500);
+                        });
+                    }
+                    document.write("<h1> </h1>");
+                    if(n2 != null && n2 != "null"){
+                        var ee = document.createElement('button');
+                        ee.textContent = n2;
+                        document.body.appendChild(ee);
+                        ee.addEventListener('click', () => {
+                            setTimeout(() => {
+                                alert("This is note 2");
+                            }, 500);
+                        });
+                    }
+                    document.write("<h1> </h1>");
+                    if(n3 != null && n3 != "null"){
+                        var ff = document.createElement('button');
+                        ff.textContent = n3;
+                        document.body.appendChild(ff);
+                        ff.addEventListener('click', () => {
+                            setTimeout(() => {
+                                alert("This is note 3");
+                            }, 500);
+                        });
+                    }
+                    document.write("<h1> </h1>");
+                    if(n4 != null && n4 != "null"){
+                        var gg = document.createElement('button');
+                        gg.textContent = n4;
+                        document.body.appendChild(gg);
+                        gg.addEventListener('click', () => {
+                            setTimeout(() => {
+                                alert("This is note 4");
+                            }, 500);
+                        });
+                    }
+                    document.write("<h1> </h1>");
+                    if(n5 != null && n5 != "null"){
+                        var hh = document.createElement('button');
+                        hh.textContent = n5;
+                        document.body.appendChild(hh);
+                        hh.addEventListener('click', () => {
+                            setTimeout(() => {
+                                alert("This is note 5");
+                            }, 500);
+                        });
+                    }
+                }
             }, 500);
         }
-        function betterCommand(){
-            setTimeout(() => {
-                window.open("https://oo159.github.io/BetterBrowse-BetterCommand/");
-            }, 500);
-        }
-        updateTime();
     </script>
 </body>
 </html>
