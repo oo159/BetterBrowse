@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BetterBrowse</title>
 </head>
-<body background="red backgrond betterbrowse.png" onload="ifpass(), savedItems()">
+<body background="C:\Users\Da verminator\Pictures\red backgrond betterbrowse.png" onload="ifpass(), savedItems()">
     <button onclick="account()">Account Info</button>
     <h1> </h1>
     <h1>BetterBrowse~</h1>
@@ -25,16 +25,17 @@
     <script>
         var auto = 0;
         var autoIs = false;
+        var isClicked = 0;
         const timer = setInterval(() => {
             if (auto == 0){
                 console.log("timer complete");
                 var autoIs = true;
-                go();
             }else{
                 console.log("10 sec has passed");
             }
         }, 10000);
         function go(){
+            isClicked++;
             setTimeout(() => {
                 console.log("search starting...");
                 startWeb();
@@ -370,29 +371,31 @@
             }, 500);
         }
         function googleLookUp(){
+            if (isClicked >= 1){
             setTimeout(() => {
                 var newTxt = document.getElementById("searchStart");
                 var newTxtV = newTxt.value;
                 var finalTxt = [];
-                for (var q = 0; q <= newTxtV.length;){
-                    newTxtNum = newTxtV[q];
-                    if (newTxtNum == " "){
+                    for (var q = 0; q <= newTxtV.length;){
+                        newTxtNum = newTxtV[q];
+                        if (newTxtNum == " "){
                         finalTxt.push("+");
-                    }else{
-                        finalTxt.push(newTxtNum);
+                        }else{
+                            finalTxt.push(newTxtNum);
+                        }
+                        q++;
                     }
-                    q++;
-                }
-                console.log("pre nonfixed link: " + finalTxt);
-                var joinLink = finalTxt.join("");
-                console.log("final nonfixed link: " + joinLink);
-                var finalSearchLink = ("https://www.google.com/search?q=" + joinLink);
-                console.log("link: " + finalSearchLink);
-                //https://www.google.com/search?q=yourquestion
-                setTimeout(() => {
-                    window.open(finalSearchLink);
-                }, 500);
-            }, 250);
+                    console.log("pre nonfixed link: " + finalTxt);
+                    var joinLink = finalTxt.join("");
+                    console.log("final nonfixed link: " + joinLink);
+                    var finalSearchLink = ("https://www.google.com/search?q=" + joinLink);
+                    console.log("link: " + finalSearchLink);
+                    //https://www.google.com/search?q=yourquestion
+                    setTimeout(() => {
+                        window.open(finalSearchLink);
+                    }, 500);
+                }, 250);
+            }
         }
     </script>
 </body>
